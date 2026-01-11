@@ -1,0 +1,196 @@
+@use "global";
+
+$gradiant: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+$blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$blue-850: hsl(228, 56%, 26%);
+$blue-950: hsl(229, 57%, 11%);
+$body-copy-font-size: 14px;
+$gb-weight: 700;
+
+body {
+  background: $blue-950 url(../images/bg-mobile.png) no-repeat;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86dvh;
+  }
+
+  header,
+  .storage {
+    background-color: $blue-850;
+    width: 85%;
+  }
+
+  header {
+    margin-bottom: 20px;
+    border: $blue-850 solid;
+    border-radius: 5px 50% 5px 5px;
+    padding: 40px 40px 35px 40px;
+
+    .logo {
+      margin-bottom: 25px;
+    }
+
+    .utilities {
+      display: flex;
+
+      .utility {
+        border-radius: 8px;
+        background-color: $blue-950;
+        margin: 10px;
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          padding: 8px;
+        }
+      }
+    }
+  }
+
+  .storage {
+    padding: 35px 35px 50px 35px;
+    border-radius: 8px;
+
+    p,
+    strong {
+      color: hsl(229deg 38.32% 85.39%);
+      text-align: center;
+    }
+
+    .progress {
+      position: relative;
+
+      .progress-bar {
+        .bar {
+          height: 20px;
+          border-radius: 10px;
+          background-color: $blue-950;
+          margin-bottom: 8px;
+          display: flex;
+          align-items: center;
+
+          .overlay {
+            background: #ff9997 $gradiant;
+            border-radius: 10px;
+            height: 85%;
+            width: 85%;
+            position: relative;
+
+            .circle-icon {
+              position: absolute;
+              top: 1px;
+              right: 2px;
+              width: 14px;
+              height: 14px;
+              background-color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        .limits {
+          display: flex;
+          justify-content: space-between;
+          * {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .remaining {
+        background-color: white;
+        border-radius: 8px;
+        padding: 12px 16px;
+        width: 65%;
+        text-align: center;
+        position: absolute;
+        top: 68px;
+        left: 17.5%;
+
+        span {
+          display: inline-block;
+          margin: 3px;
+        }
+
+        .triangle {
+          visibility: hidden;
+          width: 20px;
+          height: 20px;
+          border-top: transparent 20px solid;
+          border-right: white 20px solid;
+          border-bottom: transparent 20px solid;
+          position: absolute;
+          bottom: -21px;
+          right: -3px;
+        }
+
+        .num {
+          color: black;
+          font-size: 38px;
+          font-weight: $gb-weight;
+        }
+
+        .strong {
+          font-weight: 700;
+        }
+        .text {
+          color: $grayish-blue;
+          vertical-align: super;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .attribution {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background: $blue-950 url(../images/bg-desktop.png) no-repeat bottom;
+    background-size: contain;
+
+    .container {
+      flex-direction: row;
+      gap: 30px;
+
+      header {
+        width: 25%;
+        position: relative;
+        bottom: 17px;
+      }
+
+      .storage {
+        p {
+          text-align: left;
+        }
+        width: 40%;
+
+        .remaining {
+          min-width: 160px;
+          max-width: 40%;
+          top: -115px;
+          left: 60%;
+
+          .triangle {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
